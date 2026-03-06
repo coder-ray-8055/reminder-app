@@ -1,5 +1,6 @@
 import pyttsx3
 import time
+from plyer import notification
 
 engine = pyttsx3.init()
 def speak(text):
@@ -18,8 +19,14 @@ def set_reminder():
     print(f"{inp} set for {inp2} seconds...")
 
     time.sleep(inp2)
-    speak(f"remender! {inp}")
-    print(f"remender! {inp}")
+    speak(f"reminder! {inp}")
+    print(f"reminder! {inp}")
+
+    notification.notify(
+        title = "Reminder",
+        message = f"Time's up! {inp}...",
+        timeout = 5
+    )
 
 if __name__ == "__main__":
     speak("Welcome to your reminder app!")
