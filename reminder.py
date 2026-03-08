@@ -9,6 +9,17 @@ def speak(text):
     engine.say(text)
     engine.runAndWait()
 
+def converted_to_sec(inp2 , unit):
+    if unit in ["second" , "seconds"]:
+        return inp2
+    elif  unit in ["minute" , "minutes"]:
+        return inp2*60
+    elif  unit in ["hour" , "hours"]:
+        return inp2*3600
+    elif  unit in ["day" , "days"]:
+        return inp2*86400
+    else:
+        return None
 
 def reminder_task(inp, inp2):
 
@@ -31,12 +42,24 @@ def set_reminder():
         speak("what should i remind you about?")
         inp = input("what should i remind you about : ")
 
-        speak("After how many seconds?")
-        inp2 = int(input("After how many seconds : "))
+        speak("Enter time span")
+        try:
+            inp2 = int(input("Enter time span: "))
+        except ValueError:
+            print("Please enter a valid number")
+            continue
 
-        print(f"{inp} set for {inp2} seconds...")
+        unit = input("Enter unit(second/minutes/hours/days): ").lower()
 
-        t = threading.Thread(target=reminder_task, args=(inp, inp2))
+        seconds = converted_to_sec(inp2 , unit)
+
+        if seconds is None:
+            print("Invalid unit, using your input by default")
+            seconds = inp2
+
+        print(f"Reminder set: {inp} after {inp2} {unit}")
+
+        t = threading.Thread(target=reminder_task, args=(inp, seconds))
         t.start()
 
         again = input("Want to add another reminder(yes/no): ").lower()
