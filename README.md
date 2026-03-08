@@ -1,25 +1,27 @@
 # ⏰ Python Voice Reminder App
 
-A simple Python reminder application that allows users to set **multiple reminders** for different tasks. The app uses **text-to-speech** to speak the reminder and also sends a **desktop notification**, ensuring you never miss important tasks.
+A simple and powerful **Python Reminder Application** that allows users to set **multiple reminders** for different tasks.  
+The app gives alerts using **voice (text-to-speech)**, **desktop notifications**, and **console messages** so you never miss important tasks.
 
 ---
 
 ## 🚀 Features
 
-* 🔊 Text-to-speech reminder using Python
-* 🔔 Desktop notification alert
-* ⏱ Set reminder time in seconds
-* 📌 Multiple reminders support
-* 💬 Voice, notification, and console message alerts
-* 🧠 Simple and beginner-friendly Python project
+- 🔊 Voice reminder using Text-to-Speech
+- 🔔 Desktop notification alerts
+- ⏱ Set reminder time in **seconds, minutes, hours, or days**
+- 📌 Support for **multiple reminders**
+- 💬 Console message alert
+- 🧠 Beginner-friendly Python project
 
 ---
 
 ## 🛠️ Tech Stack
 
-* Python
-* `pyttsx3` – Text-to-Speech Library
-* `plyer` – Desktop Notification Library
+- **Python**
+- `pyttsx3` – Text-to-Speech library
+- `plyer` – Desktop notification library
+- `time` – For managing reminder delays
 
 ---
 
@@ -27,7 +29,7 @@ A simple Python reminder application that allows users to set **multiple reminde
 
 1. Make sure **Python** is installed on your system.
 
-2. Install the required dependencies:
+2. Install the required libraries:
 
 ```bash
 pip install pyttsx3 plyer
@@ -43,31 +45,41 @@ Run the Python script:
 python reminder.py
 ```
 
-Then follow the instructions:
+Then follow the instructions in the terminal:
 
-1. Enter the task you want to be reminded about
-2. Enter the reminder time in seconds
-3. You can add **multiple reminders**
-4. After the timer ends, the app will notify you using:
+1. Enter how many reminders you want to set
+2. Enter the **task name**
+3. Enter the **time value**
+4. Choose the **time format**:
+   - Seconds
+   - Minutes
+   - Hours
+   - Days
 
-* 🔊 Voice reminder
-* 🔔 Desktop notification
-* 💬 Console message
+After the timer ends, the app will alert you using:
+
+- 🔊 Voice reminder
+- 🔔 Desktop notification
+- 💬 Console message
 
 ---
 
 ## 💻 Example
 
 ```
-Welcome to your reminder app!
+Welcome to your Reminder App!
 
-How many reminders you want to set: 2
+How many reminders do you want to set: 2
 
-Enter reminder 1 task: Drink water
-Enter time in seconds: 10
+Reminder 1
+Enter task: Drink water
+Enter time: 1
+Choose format (seconds/minutes/hours/days): minutes
 
-Enter reminder 2 task: Stretch
-Enter time in seconds: 20
+Reminder 2
+Enter task: Stretch
+Enter time: 30
+Choose format (seconds/minutes/hours/days): seconds
 
 Reminders set successfully!
 
@@ -80,7 +92,7 @@ Reminders set successfully!
 ## 📂 Project Structure
 
 ```
-reminder-app
+voice-reminder-app
 │
 ├── reminder.py
 └── README.md
@@ -92,12 +104,13 @@ reminder-app
 
 This project was built while learning Python to understand:
 
-* Python functions
-* User input handling
-* Time delay using `time.sleep()`
-* Text-to-speech integration
-* Desktop notification integration
-* Handling multiple reminders using loops
+- Python functions
+- User input handling
+- Time delay using `time.sleep()`
+- Text-to-Speech integration
+- Desktop notification integration
+- Handling **multiple reminders**
+- Working with **different time formats (seconds, minutes, hours, days)**
 
 ---
 
