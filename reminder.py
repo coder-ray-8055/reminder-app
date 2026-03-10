@@ -5,6 +5,8 @@ import threading
 
 engine = pyttsx3.init()
 
+reminders= []
+
 def speak(text):
     engine.say(text)
     engine.runAndWait()
@@ -55,9 +57,11 @@ def set_reminder():
 
         if seconds is None:
             print("Invalid unit, using your input by default")
-            seconds = inp2
+            continue
 
         print(f"Reminder set: {inp} after {inp2} {unit}")
+        speak(f"Reminder set for {inp} after {inp2} {unit}")
+        reminders.append(f"Reminder set: {inp} after {inp2} {unit}")
 
         t = threading.Thread(target=reminder_task, args=(inp, seconds))
         t.start()
@@ -66,6 +70,8 @@ def set_reminder():
 
         if again != "yes":
             print("Exitting App...")
+            for r in reminders:
+                print(r)
             break
 
 
