@@ -2,10 +2,13 @@ import pyttsx3
 import time
 from plyer import notification
 import threading
+import json
+import os
 
 engine = pyttsx3.init()
 
 reminders= []
+FILE = "reminders.json"
 
 def speak(text):
     engine.say(text)
@@ -22,6 +25,16 @@ def converted_to_sec(inp2 , unit):
         return inp2*86400
     else:
         return None
+    
+def save_reminders():
+    with open(FILE , "w") as f:
+        json.dump(reminders , f)
+
+def load_reminders():
+    global reminders
+    if os.path.exists(FILE):
+        with open(FILE , "r") as f:
+            reminders = json.load(f)
 
 def reminder_task(inp, inp2):
 
@@ -63,6 +76,8 @@ def set_reminder():
         speak(f"Reminder set for {inp} after {inp2} {unit}")
         reminders.append(f"Reminder set: {inp} after {inp2} {unit}")
 
+        save_reminders()
+
         t = threading.Thread(target=reminder_task, args=(inp, seconds))
         t.start()
 
@@ -70,11 +85,20 @@ def set_reminder():
 
         if again != "yes":
             print("Exitting App...")
+
+            print("Reminders added: ")
             for r in reminders:
                 print(r)
             break
 
 
 if __name__ == "__main__":
+    load_reminders()
+
+    if reminders:
+        print("Previously saved reminders:")
+        for r in reminders:
+            print(r)
+
     speak("Welcome to your reminder app!")
     set_reminder()
