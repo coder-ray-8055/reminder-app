@@ -2,7 +2,8 @@
 
 A simple and powerful **Python Reminder Application** that allows users to set **multiple reminders interactively**.
 
-The app alerts users using **voice (text-to-speech)**, **desktop notifications**, and **console messages**, ensuring you never miss important tasks.
+The app alerts users using **voice (text-to-speech)**, **desktop notifications**, and **console messages**, ensuring you never miss important tasks.  
+It also **saves reminders to a JSON file**, so your reminders can persist even after restarting the app.
 
 ---
 
@@ -13,6 +14,8 @@ The app alerts users using **voice (text-to-speech)**, **desktop notifications**
 - ⏱ Set reminder time in **seconds, minutes, hours, or days**
 - 📌 Add **multiple reminders continuously**
 - 📋 View all reminders after adding them
+- 💾 **Save reminders to a JSON file**
+- 🔁 Load previously saved reminders automatically
 - 💬 Console message alerts
 - 🧠 Beginner-friendly Python project
 
@@ -24,7 +27,9 @@ The app alerts users using **voice (text-to-speech)**, **desktop notifications**
 - `pyttsx3` → Text-to-Speech library  
 - `plyer` → Desktop notification library  
 - `time` → For managing reminder delays  
-- `threading` → For running multiple reminders simultaneously
+- `threading` → For running multiple reminders simultaneously  
+- `json` → For saving and loading reminders  
+- `os` → For handling file operations  
 
 ---
 
@@ -60,6 +65,8 @@ Follow the instructions in the terminal:
 4. Choose whether you want to **add another reminder**
 
 You can continue adding reminders until you choose to exit.
+
+All reminders are **automatically saved** and will be **loaded the next time the app runs**.
 
 ---
 
@@ -105,6 +112,7 @@ When the time is completed, the app will alert you using:
 voice-reminder-app
 │
 ├── reminder.py
+├── reminders.json
 └── README.md
 ```
 
@@ -122,6 +130,7 @@ This project was built while learning Python to understand:
 - Using **threads for multiple reminders**
 - Working with **different time formats**
 - Managing **lists to store reminders**
+- Saving and loading data using **JSON**
 
 ---
 
